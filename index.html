@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA San Andreas Stories Mod</title>
+    <title>GTA San Andreas Stories</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
@@ -287,6 +287,31 @@
             font-size: 1.2rem;
         }
     }
+     /* Add video container styles */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Add space between sections */
+        section {
+            margin-bottom: 3rem;
+        }
 </style>
 </head>
 <body class="light-mode">
@@ -297,6 +322,8 @@
             <a href="#faq" class="section-button"><i class="fas fa-question-circle"></i> FAQ</a>
             <a href="#requirements" class="section-button"><i class="fas fa-cogs"></i> Requirements</a>
             <a href="#credits" class="section-button"><i class="fas fa-star"></i> Credits</a>
+            <!-- Added Trailer navigation button -->
+            <a href="#trailer" class="section-button"><i class="fas fa-video"></i> Trailer</a>
             <a href="#download" class="section-button"><i class="fas fa-download"></i> Download</a>
             <a href="#screenshots" class="section-button"><i class="fas fa-image"></i> Screenshots</a>
         </nav>     
@@ -481,6 +508,18 @@
             </div>
         </section>
 
+
+        <!-- New Trailer Section -->
+        <section id="trailer">
+            <h2><i class="fas fa-video"></i> Official Trailer</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lRn2nKz5hg8" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </section>
+        
 <!-- Screenshots Section -->
 <section id="screenshots">
     <h2><i class="fas fa-image section-icon"></i> Game Gallery</h2>
