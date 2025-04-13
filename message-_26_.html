@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA San Andreas Stories Mod</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+        line-height: 1.9;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    header {
+        background: rgba(0, 0, 0, 0.95);
+        padding: 2rem 1rem;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    header img {
+        height: 220px;
+        display: block;
+        margin: 0 auto 1rem;
+        transition: height 0.3s ease;
+    }
+
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section-button {
+        padding: 0.8rem 1.5rem;
+        background: #ff4444;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        border: 2px solid #ff0000;
+        white-space: nowrap;
+        font-size: 0.9rem;
+    }
+
+    .section-button:hover {
+        background: #ff3333;
+        transform: translateY(-2px);
+    }
+
+    .section-button i {
+        margin-right: 0.5rem;
+    }
+
+    .toggle-button {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background: #444;
+        color: white;
+        border: none;
+        padding: 0.7rem 1.2rem;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .toggle-button:hover {
+        background: #666;
+    }
+
+    main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    section {
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: rgba(0,0,0,0.7);
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    body.light-mode section {
+        background: rgba(255,255,255,0.9);
+    }
+
+    /* Download Section Styles */
+    .download-items {
+        display: grid;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .download-item {
+        background: rgba(255,255,255,0.05);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #ff4444;
+    }
+
+    .download-item h3 {
+        color: #ff4444;
+        margin-bottom: 0.5rem;
+    }
+
+    .download-item p {
+        color: #888;
+        margin-bottom: 1rem;
+    }
+
+    .disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        display: inline-block;
+        pointer-events: none;
+    }
+
+    .badge {
+        background: #ff4444;
+        padding: 0.3rem 0.7rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        margin-left: 1rem;
+        display: inline-block;
+    }
+
+    /* Image Carousel */
+    .carousel-container {
+        position: relative;
+        max-width: 800px;
+        margin: 2rem auto;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+.carousel-image {
+    width: 100%;
+    height: 400px;
+    object-fit: fill; /* Stretch the image to fit the box */
+    border-radius: 8px;
+}
+
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,68,68,0.8);
+        color: white;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+        background: #ff4444;
+    }
+
+    .carousel-btn.prev {
+        left: 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .carousel-btn.next {
+        right: 0;
+        border-radius: 8px 0 0 8px;
+    }
+
+    h1, h2, h3 {
+        color: #ff4444;
+        margin-bottom: 1.5rem;
+    }
+
+    .credits-list {
+        columns: 2;
+        margin: 2rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .credits-list li {
+        margin-bottom: 1rem;
+        break-inside: avoid;
+        list-style-type: disc;
+    }
+
+    ul {
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        header img {
+            height: 180px;
+        }
+        
+        .toggle-button {
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+        
+        .credits-list {
+            columns: 1;
+        }
+
+        .download-items {
+            grid-template-columns: 1fr;
+        }
+
+        .carousel-container {
+            max-width: 90%;
+        }
+        
+        .carousel-image {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            padding: 1.5rem 0.5rem;
+        }
+        
+        header img {
+            height: 150px;
+        }
+        
+        .toggle-button {
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .section-button {
+            width: 100%;
+            text-align: center;
+        }
+
+        .download-item {
+            padding: 1rem;
+        }
+
+        .carousel-image {
+            height: 250px;
+        }
+        
+        .carousel-btn {
+            padding: 0.8rem;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+<body class="light-mode">
+    <header>          
+        <img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/lenchmobnigga.png" alt="GTA San Andreas Stories Logo">     
+        <nav>
+            <a href="#info" class="section-button"><i class="fas fa-info-circle"></i> Info</a>
+            <a href="#faq" class="section-button"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="#requirements" class="section-button"><i class="fas fa-cogs"></i> Requirements</a>
+            <a href="#credits" class="section-button"><i class="fas fa-star"></i> Credits</a>
+            <a href="#download" class="section-button"><i class="fas fa-download"></i> Download</a>
+            <a href="#screenshots" class="section-button"><i class="fas fa-image"></i> Screenshots</a>
+        </nav>     
+        <button class="toggle-button">Toggle Dark Mode</button> 
+    </header>
+
+    <main>
+<!-- Info Section -->
+<section id="info">
+    <h2><i class="fas fa-info-circle icon"></i> Mod Overview</h2>
+
+    <p><strong>GTA San Andreas Stories</strong>, also known by its alternative titles <strong>GTA San Andreas Stories: The Return of Ryder</strong> or <strong>GTA San Andreas Stories: 1987</strong>, is a fan-created mod developed by <strong>babamohammed2022</strong>. Currently in progress, it seeks to recreate the atmosphere of the classic GTA Stories games.</p>
+
+    <p>This mod utilizes <strong>DYOM 8.1</strong> and focuses on Ryder’s return to Los Santos in 1987, embarking on new adventures while reconnecting with familiar faces from the past.</p>
+
+    <p>For further information, join our Discord community: 
+        <a href="https://discord.gg/t5SjMrAJNh" target="_blank" class="discord-link">
+            <i class="fab fa-discord icon"></i> Join Discord
+        </a>
+    </p>
+
+    <div class="warning-box">
+        <p><strong><i class="fas fa-exclamation-triangle"></i> <u>Important:</u></strong> Some mods are <u>not supported</u> and could lead to issues!</p>
+        <ul>
+            <li><strong>Essential Modpack:</strong> The <strong>Widescreen mod</strong> <u>might cause issues</u>. It’s <u>advised</u> to remove it from Modloader to avoid crashes.</li>
+            <li><strong>SAMP (San Andreas Multiplayer):</strong> This mod is <u>incompatible</u> with SAMP and could cause crashes or other unexpected behavior.</li>
+            <li><strong>Animation Mods (e.g., Ragdoll Mods):</strong> These are <u>not supported</u> and can cause significant problems when used alongside this mod.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq">
+    <h2><i class="fas fa-question-circle icon"></i> Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <strong><u>Q1: Where is the setting of the mod?</u></strong>
+        <p>The mod is set in 1987 in the city of Los Santos, a place on the brink of chaos where gangs, including the Grove Street Families, battle for control.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q2: Who is the main protagonist of the story?</u></strong>
+        <p>The protagonist is Lance "Ryder" Wilson, a loyal member of the Grove Street Families who returns to Los Santos from Vice City to help the gang during CJ's absence.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q3: Why did CJ leave Los Santos?</u></strong>
+        <p>CJ, or Carl Johnson, left Los Santos after the tragic death of his brother, Brian. He went to Liberty City to cope with the loss, leaving Sweet and the others behind to handle the gang.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q4: Who are the main antagonists in the game?</u></strong>
+        <p>The primary antagonist is Victor "Viper" Mendez, a dangerous drug kingpin aiming to expand his empire in Los Santos, seeing the Grove Street Families as a major obstacle.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q5: Are there multiple chapters in the storyline?</u></strong>
+        <p>Yes, the mod is divided into three chapters, each featuring intense gang warfare and missions that push Ryder and the Grove Street Families to their limits.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q6: Is there any word on additional content or expansions?</u></strong>
+        <p>Yes, once the mod is finished, there are plans for downloadable content (DLC) to further enrich the storyline and features.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q7: How do I stay updated about the progress of "Grand Theft Auto: San Andreas Stories"?</u></strong>
+        <p>You can find updates on the official Discord server or by following the YouTube channel "cerdopalo."</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q8: Will this mod significantly change "Grand Theft Auto: San Andreas"?</u></strong>
+        <p>Yes, the mod will overhaul many aspects of the game, including missions, characters, gameplay mechanics, and graphics, offering a fresh experience set in 1987 Los Santos.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q9: What gangs are involved in the storyline?</u></strong>
+        <p>The game features several gangs, such as the Grove Street Families, Ballas, La Sombra del Cuervo, Vagos, Seville Boulevard Families, Temple Drive Families, Aztecas, Russian Mafia, and Sindaccos.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q10: Who are the Grove Street Families' allies?</u></strong>
+        <p>The Grove Street Families are allied with the Seville Boulevard Families, Temple Drive Families, and Tommy Vercetti.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q11: What is Ryder's history in Vice City?</u></strong>
+        <p>Ryder worked for Tommy Vercetti in Vice City before returning to Los Santos to reconnect with the Grove Street Families and continue his role in the gang.</p>
+    </div>
+
+    <div class="faq-item">
+        <strong><u>Q12: Are there any side missions in the mod?</u></strong>
+        <p>Yes, the mod includes side missions like Pizza Delivery, Trash Dash, and Drug Bust Operation, with vehicles available at various locations around the map, including Idlewood and Willowfield.</p>
+    </div>
+</section>
+
+<!-- Requirements Section -->
+<section id="requirements">
+    <h2>System Requirements</h2>
+    <p>Ready to jump into Los Santos? Here's what your PC needs to get started:</p>
+    <ul>
+        <li><strong><u>Operating System</u>:</strong> Windows 7 or later</li>
+        <li><strong><u>Processor</u>:</strong> Dual-Core or equivalent</li>
+        <li><strong><u>Memory</u>:</strong> 4 GB RAM</li>
+        <li><strong><u>Graphics</u>:</strong> Integrated Graphics</li>
+        <li><strong><u>Storage</u>:</strong> 3 GB of free space</li>
+        <li><strong><u>Additional Requirements</u>:</strong> A clean copy of GTA San Andreas, GTA SA EXE 1.0 US version, CLEO 5, CLEO+, and DYOM 8.1 (all included in the essentials pack)</li>
+    </ul>
+    <p>Make sure your system is up to the task for a smooth experience in San Andreas!</p>
+</section>
+
+
+<!-- Credits Section -->
+<section id="credits">
+    <h2>Development Team</h2>
+    <ul class="credits-list">
+        <li><strong><u>babamohammed2022</u>:</strong> Project Owner, Lead Mission Designer, Storywriting</li>
+        <li><strong><u>Abdullah</u>:</strong> Website Design, Models, Suggestions</li>
+        <li><strong><u>FrankoU</u>:</strong> Mapping Specialist, Screenshot Production</li>
+        <li><strong><u>avixreal</u>:</strong> Supervision, AI Voices, Website Assistance</li>
+        <li><strong><u>The Small Chese</u>:</strong> Mission Design, Creative Direction</li>
+        <li><strong><u>Armando</u>:</strong> Testing, Mission Contributions</li>
+        <li><strong><u>Mike</u>:</strong> Missions, In-game Photography</li>
+        <li><strong><u>Cerdquad</u>:</strong> Animations (with Yucark)</li>
+        <li><strong><u>GTAMissionsCreator</u>:</strong> Video Production</li>
+        <li><strong><u>Noobshakespeare</u>:</strong> Retexturing</li>
+        <li><strong><u>karammii</u>:</strong> Billboards Design</li>
+        <li><strong><u>Jmanuc</u>:</strong> Screenshots, Suggestions</li>
+        <li><strong><u>Rayane</u>:</strong> Suggestions, Voices</li>
+        <li><strong><u>Seve267</u>:</strong> Scripting Help</li>
+        <li><strong><u>Forge</u>:</strong> Scripting Help</li>
+    </ul>
+
+    <h3>Special Contributors</h3>
+    <ul class="credits-list">
+        <li><strong><u>Rule Breakers</u>:</strong> Environmental Mapping</li>
+        <li><strong><u>Bolszewik</u>:</strong> In-game Photography</li>
+        <li><strong><u>14todoeltiempodc</u>:</strong> Weapon Retextures</li>
+        <li><strong><u>NorthStationX</u>:</strong> Billboards Design</li>
+        <li><strong><u>Lost MC Claude</u>:</strong> Bug Testing</li>
+        <li><strong><u>MAHMOGAMER</u>:</strong> Project Supervision</li>
+        <li><strong><u>Tix</u>:</strong> Gameplay Testing</li>
+        <li><strong><u>Raul</u>:</strong> Visual Enhancements</li>
+    </ul>
+</section>
+
+
+            <h3>Special Credits</h3>
+            <p>This mod integrates work from talented creators including:<br>
+            Endochronic, SASquad, Yucark, TheMadeMan, and many others.<br>
+            Full credits available in modpack files.</p>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download">
+            <h2>Downloads</h2>
+            <div class="download-items">
+                <div class="download-item">
+                    <h3>Main Modpack</h3>
+                    <p>Complete modification package containing all essential files</p>
+                    <a href="https://drive.google.com/file/d/1Z1YfguWqS_yLZ1NlCGkdP-6kOiwcu7Wk/view?usp=sharing" class="section-button" target="_blank">
+                        <i class="fas fa-box-open"></i> Download Modpack
+                    </a>
+                </div>
+
+                <div class="download-item">
+                    <h3>Storyline Package</h3>
+                    <p>The storyline of the mod (Requires DYOM 8.1)</p>
+                    <a href="https://drive.google.com/file/d/1rkqx96dJZK58ORkelBrjUYB5Bg6OibDt/view?usp=sharing" class="section-button" target="_blank">
+                        <i class="fas fa-book-open"></i> Download Storyline
+                    </a>
+                </div>
+
+                <div class="download-item">
+                    <h3>Latest Patch</h3>
+                    <p>Bug fixes and performance improvements</p>
+                    <div class="section-button disabled">
+                        <i class="fas fa-tools"></i> Patch v1.0.0 
+                        <span class="badge">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Screenshots Section -->
+<section id="screenshots">
+    <h2><i class="fas fa-image section-icon"></i> Game Gallery</h2>
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/c.png" class="carousel-image" alt="Grove Street Scene"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/Picsart_24-08-24_12-12-14-625.jpg" class="carousel-image" alt="Vice City Vibes"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/image.png" class="carousel-image" alt="Los Santos Skyline"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/argentina-transformed.png" class="carousel-image" alt="Gang Territory"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/upscale.PNG" class="carousel-image" alt="Weapon Selection"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/upscale2.PNG" class="carousel-image" alt="Safe House Interior"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/babamohammed2022/babamohammed2022/main/2.webp" class="carousel-image" alt="Vintage Billboard"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/babamohammed2022/babamohammed2022/main/Template_Paint.NET.webp" class="carousel-image" alt="Character Lineup"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/babamohammed2022/small-cheese/main/Media_Player_12_7_2024_8_35_16_PM.webp" class="carousel-image" alt="Mission Briefing"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/babamohammed2022/small-cheese/main/captura_by_FrankoU_28_18.webp" class="carousel-image" alt="Car Chase"></div>
+            <div class="carousel-slide"><img src="https://raw.githubusercontent.com/babamohammed2022/small-cheese/main/captura_by_FrankoU_28_19.webp" class="carousel-image" alt="Custom Vehicle"></div>
+        </div>
+        <button class="carousel-btn prev">&lt;</button>
+        <button class="carousel-btn next">&gt;</button>
+    </div>
+</section>
+
+<style>
+    .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: 2rem auto;
+        overflow: hidden;
+        border-radius: 10px;
+        background: rgba(0,0,0,0.7);
+        height: 500px;
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: #000;
+    }
+
+    .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  /* Ensures the image fits while maintaining aspect ratio */
+        object-position: center; /* Optional: Ensures the focus is on the center of the image */
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,68,68,0.9);
+        color: white;
+        border: none;
+        padding: 1.2rem 1.5rem;
+        cursor: pointer;
+        font-size: 1.8rem;
+        z-index: 10;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .carousel-btn:hover {
+        background: #ff3333;
+        padding: 1.5rem 2rem;
+    }
+
+    .carousel-btn.prev { left: 0; }
+    .carousel-btn.next { right: 0; }
+
+    @media (max-width: 1200px) {
+        .carousel-container {
+            max-width: 90vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .carousel-btn {
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .carousel-container {
+            max-width: 95vw;
+        }
+        .carousel-btn {
+            padding: 0.8rem;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+
+<script>
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentIndex = 0;
+
+    const updateCarouselPosition = () => {
+        carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    };
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+        updateCarouselPosition();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
+        updateCarouselPosition();
+    });
+</script>
+
+
+
+<!-- Dark Mode Toggle Script -->
+<script>
+    const toggleButton = document.querySelector('.toggle-button');
+    const body = document.body;
+
+    // Load saved preference
+    const savedLightMode = localStorage.getItem('lightMode') === 'true';
+    body.classList.toggle('light-mode', savedLightMode);
+
+    // Toggle functionality
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        localStorage.setItem('lightMode', body.classList.contains('light-mode'));
+    });
+</script>
+
+</body>
+</html>
