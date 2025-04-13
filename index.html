@@ -123,6 +123,43 @@
         border-left: 4px solid #ff4444;
     }
 
+    /* Download Buttons Styles */
+    .download-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+    .btn-download {
+        text-decoration: none;
+    }
+
+    .btn-download-custom {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.9rem;
+    }
+
+    .btn-download-custom:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    .cleo5-btn {
+        background-color: #ff4444;
+        color: white;
+    }
+
+    .essent-btn {
+        background-color: #6c757d;
+        color: white;
+    }
+
     .download-item h3 {
         color: #ff4444;
         margin-bottom: 0.5rem;
@@ -163,13 +200,12 @@
         transition: transform 0.5s ease-in-out;
     }
 
-.carousel-image {
-    width: 100%;
-    height: 400px;
-    object-fit: fill; /* Stretch the image to fit the box */
-    border-radius: 8px;
-}
-
+    .carousel-image {
+        width: 100%;
+        height: 400px;
+        object-fit: fill;
+        border-radius: 8px;
+    }
 
     .carousel-btn {
         position: absolute;
@@ -226,6 +262,27 @@
         line-height: 1.5;
     }
 
+    /* Video Container */
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 800px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
     @media (max-width: 768px) {
         header img {
             height: 180px;
@@ -250,6 +307,15 @@
         
         .carousel-image {
             height: 300px;
+        }
+
+        .download-buttons {
+            flex-direction: column;
+        }
+
+        .btn-download-custom {
+            width: 100%;
+            text-align: center;
         }
     }
 
@@ -286,32 +352,12 @@
             padding: 0.8rem;
             font-size: 1.2rem;
         }
+
+        .btn-download-custom {
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+        }
     }
-     /* Add video container styles */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Add space between sections */
-        section {
-            margin-bottom: 3rem;
-        }
 </style>
 </head>
 <body class="light-mode">
@@ -420,20 +466,44 @@
     </div>
 </section>
 
-<!-- Requirements Section -->
-<section id="requirements">
-    <h2>System Requirements</h2>
-    <p>Ready to jump into Los Santos? Here's what your PC needs to get started:</p>
-    <ul>
-        <li><strong><u>Operating System</u>:</strong> Windows 7 or later</li>
-        <li><strong><u>Processor</u>:</strong> Dual-Core or equivalent</li>
-        <li><strong><u>Memory</u>:</strong> 4 GB RAM</li>
-        <li><strong><u>Graphics</u>:</strong> Integrated Graphics</li>
-        <li><strong><u>Storage</u>:</strong> 3 GB of free space</li>
-        <li><strong><u>Additional Requirements</u>:</strong> A clean copy of GTA San Andreas, GTA SA EXE 1.0 US version, CLEO 5, CLEO+, and DYOM 8.1 (all included in the essentials pack)</li>
-    </ul>
-    <p>Make sure your system is up to the task for a smooth experience in San Andreas!</p>
-</section>
+ <!-- Requirements Section -->
+    <section id="requirements">
+        <h2>System Requirements</h2>
+        <p>Ready to jump into Los Santos? Here's what your PC needs to get started:</p>
+        <ul>
+            <li><strong><u>Operating System</u>:</strong> Windows 7 or later</li>
+            <li><strong><u>Processor</u>:</strong> Dual-Core or equivalent</li>
+            <li><strong><u>Memory</u>:</strong> 4 GB RAM</li>
+            <li><strong><u>Graphics</u>:</strong> Integrated Graphics</li>
+            <li><strong><u>Storage</u>:</strong> 3 GB of free space</li>
+            <li><strong><u>Additional Requirements</u>:</strong> A clean copy of GTA San Andreas, GTA SA EXE 1.0 US version, CLEO 5, CLEO+, and DYOM 8.1 (all included in the essentials pack)</li>
+        </ul>
+
+        <h3>Required Mods & Tools</h3>
+        <div class="download-buttons">
+            <a href="https://github.com/cleolibrary/CLEO5/releases/download/v5.0.0-RC2/SA.CLEO_v5.0.0-RC2+Silent_ASI_Loader.zip" class="btn-download" download target="_blank">
+                <button class="btn-download-custom cleo5-btn">Download CLEO 5</button>
+            </a>
+
+            <a href="https://www.gtagarage.com/mods/download.php?f=35188" class="btn-download" download target="_blank">
+                <button class="btn-download-custom dyom-btn" style="background-color: #28a745; color: white;">Download DYOM 8.1</button>
+            </a>
+
+            <a href="https://www.mixmods.com.br/2023/10/cleoplus/" class="btn-download" download target="_blank">
+                <button class="btn-download-custom cleoplus-btn" style="background-color: #1e3a8a; color: white;">Download CLEO+</button>
+            </a>
+
+            <a href="https://www.mediafire.com/file/pw94wuhxg49xli6/GTA_SAS_essentials_pack.rar/file" class="btn-download" download target="_blank">
+                <button class="btn-download-custom essent-btn">Download Essential Packs</button>
+            </a>
+        </div>
+
+        <p>Make sure your system is up to the task for a smooth experience in San Andreas!</p>
+    </section>
+
+    <!-- ... (keep rest of the HTML content) ... -->
+</body>
+</html>
 
 
 <!-- Credits Section -->
