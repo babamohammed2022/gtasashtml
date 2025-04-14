@@ -32,12 +32,23 @@
         background-color: #1a1a1a;
         color: #ffffff;
         line-height: 1.9;
-        transition: background-color 0.3s, color 0.3s;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        background-image: url('https://raw.githubusercontent.com/babamohammed2022/CLEO_Snippet_Fetcher/refs/heads/main/file_00000000ff5461fa9664a4620095ba2b_conversation_id67fce5d9-13d0-800c-906f-586df3adde0bmessage_ide03c0d3b-617e-4327-81f3-013a4e376e40.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 
     body.light-mode {
         background-color: #f4f4f4;
         color: #333;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        background-image: url('https://raw.githubusercontent.com/babamohammed2022/CLEO_Snippet_Fetcher/refs/heads/main/file_00000000ff5461fa9664a4620095ba2b_conversation_id67fce5d9-13d0-800c-906f-586df3adde0bmessage_ide03c0d3b-617e-4327-81f3-013a4e376e40.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 
     header {
@@ -46,6 +57,7 @@
         width: 100%;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         position: relative;
+        transition: background 0.3s ease;
     }
 
     header img {
@@ -116,13 +128,15 @@
         background: rgba(0,0,0,0.7);
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+        transition: background 0.3s ease;
     }
 
     body.light-mode section {
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(5px);
     }
 
-    /* Download Section Styles */
     .download-items {
         display: grid;
         gap: 2rem;
@@ -134,9 +148,9 @@
         padding: 1.5rem;
         border-radius: 8px;
         border-left: 4px solid #ff4444;
+        transition: background 0.3s ease;
     }
 
-    /* Download Buttons Styles */
     .download-buttons {
         display: flex;
         flex-wrap: wrap;
@@ -199,7 +213,6 @@
         display: inline-block;
     }
 
-    /* Image Carousel */
     .carousel-container {
         position: relative;
         max-width: 800px;
@@ -251,6 +264,7 @@
     h1, h2, h3 {
         color: #ff4444;
         margin-bottom: 1.5rem;
+        transition: color 0.3s ease;
     }
 
     .credits-list {
@@ -275,7 +289,6 @@
         line-height: 1.5;
     }
 
-    /* Video Container */
     .video-container {
         position: relative;
         padding-bottom: 56.25%;
@@ -300,12 +313,12 @@
         header img {
             height: 180px;
         }
-        
+
         .toggle-button {
             top: 1.5rem;
             right: 1.5rem;
         }
-        
+
         .credits-list {
             columns: 1;
         }
@@ -317,7 +330,7 @@
         .carousel-container {
             max-width: 90%;
         }
-        
+
         .carousel-image {
             height: 300px;
         }
@@ -336,18 +349,18 @@
         header {
             padding: 1.5rem 0.5rem;
         }
-        
+
         header img {
             height: 150px;
         }
-        
+
         .toggle-button {
             top: 1rem;
             right: 1rem;
             padding: 0.5rem 1rem;
             font-size: 0.9rem;
         }
-        
+
         .section-button {
             width: 100%;
             text-align: center;
@@ -360,7 +373,7 @@
         .carousel-image {
             height: 250px;
         }
-        
+
         .carousel-btn {
             padding: 0.8rem;
             font-size: 1.2rem;
@@ -372,6 +385,7 @@
         }
     }
 </style>
+
 </head>
 <body class="light-mode">
     <header>          
@@ -396,7 +410,7 @@
 
     <p><strong>GTA San Andreas Stories</strong>, also known by its alternative titles <strong>GTA San Andreas Stories: The Return of Ryder</strong> or <strong>GTA San Andreas Stories: 1987</strong>, is a fan-created mod developed by <strong>babamohammed2022</strong>. Currently in progress, it seeks to recreate the atmosphere of the classic GTA Stories games.</p>
 
-    <p>This mod utilizes <strong>DYOM 8.1</strong> and focuses on Ryder’s return to Los Santos in 1987, embarking on new adventures while reconnecting with familiar faces from the past.</p>
+    <p>This mod utilizes <strong>DYOM 8.1</strong> and focuses on Ryder's return to Los Santos in 1987, embarking on new adventures while reconnecting with familiar faces from the past.</p>
 
     <p>For further information, join our Discord community: 
         <a href="https://discord.gg/t5SjMrAJNh" target="_blank" class="discord-link">
@@ -407,7 +421,7 @@
     <div class="warning-box">
         <p><strong><i class="fas fa-exclamation-triangle"></i> <u>Important:</u></strong> Some mods are <u>not supported</u> and could lead to issues!</p>
         <ul>
-            <li><strong>Essential Modpack:</strong> The <strong>Widescreen mod</strong> <u>might cause issues</u>. It’s <u>advised</u> to remove it from Modloader to avoid crashes.</li>
+            <li><strong>Essential Modpack:</strong> The <strong>Widescreen mod</strong> <u>might cause issues</u>. It's <u>advised</u> to remove it from Modloader to avoid crashes.</li>
             <li><strong>SAMP (San Andreas Multiplayer):</strong> This mod is <u>incompatible</u> with SAMP and could cause crashes or other unexpected behavior.</li>
             <li><strong>Animation Mods (e.g., Ragdoll Mods):</strong> These are <u>not supported</u> and can cause significant problems when used alongside this mod.</li>
         </ul>
@@ -751,23 +765,34 @@
 </script>
 
 
-
+<style>
+    /* Add this to your CSS for smooth transition */
+    body {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+</style>
 
 <!-- Dark Mode Toggle Script -->
 <script>
-    const toggleButton = document.querySelector('.toggle-button');
-    const body = document.body;
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.querySelector('.toggle-button');
+        const body = document.body;
 
-    // Load saved preference
-    const savedLightMode = localStorage.getItem('lightMode') === 'true';
-    body.classList.toggle('light-mode', savedLightMode);
+        // Load saved preference and apply it
+        const isLightMode = localStorage.getItem('lightMode') === 'true';
+        if (isLightMode) {
+            body.classList.add('light-mode');
+        }
 
-    // Toggle functionality
-    toggleButton.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        localStorage.setItem('lightMode', body.classList.contains('light-mode'));
+        // Toggle functionality
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const currentMode = body.classList.contains('light-mode');
+            localStorage.setItem('lightMode', currentMode);
+        });
     });
 </script>
+
 
 </body>
 </html>
