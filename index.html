@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/lenchmobnigga.png">
- <style>
+<style>
     :root {
         --main-red: #ff4444;
         --main-dark: #1a1a1a;
@@ -96,8 +96,38 @@
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
 
-    .nav-button i {
-        font-size: 0.9em;
+    .download-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.8rem 1.8rem;
+        background: linear-gradient(145deg, var(--main-red), #cc0000);
+        color: var(--text-light);
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .download-button:hover {
+        transform: translateY(-2px) scale(1.05);
+        background: linear-gradient(145deg, #ff5555, #dd0000);
+        box-shadow: 0 6px 12px rgba(255, 68, 68, 0.3);
+        color: var(--text-light);
+    }
+
+    .download-button i {
+        font-size: 1.1em;
+        transition: transform 0.3s ease;
+    }
+
+    .download-button:hover i {
+        transform: translateY(-1px);
     }
 
     #darkModeToggle {
@@ -168,7 +198,6 @@
         margin-bottom: 1.2rem;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
         header {
             padding: 1rem 0.5rem;
@@ -181,6 +210,11 @@
         .nav-button {
             padding: 0.7rem 1.2rem;
             font-size: 0.85rem;
+        }
+
+        .download-button {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
         }
 
         #darkModeToggle {
@@ -207,6 +241,11 @@
         .nav-button {
             padding: 0.6rem 1rem;
             font-size: 0.8rem;
+        }
+
+        .download-button {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
         }
 
         main {
@@ -497,37 +536,118 @@
     Full credits available in modpack files.</p>
 </section>
 
+<!-- Download Section -->
+<section id="download">
+    <h2>Download Section</h2>
+    <div class="download-items">
+        <div class="download-item">
+            <h3>Main Modpack</h3>
+            <p>Complete modification package containing all essential files</p>
+            <a href="https://drive.google.com/file/d/1Z1YfguWqS_yLZ1NlCGkdP-6kOiwcu7Wk/view?usp=sharing" class="download-button" target="_blank">
+                Download Modpack <i class="fas fa-box-open"></i>
+            </a>
+            <span class="required-badge">Required</span>
+        </div>
 
-        <!-- Download Section -->
-        <section id="download">
-            <h2>Install</h2>
-            <div class="download-items">
-                <div class="download-item">
-                    <h3>Main Modpack</h3>
-                    <p>Complete modification package containing all essential files</p>
-                    <a href="https://drive.google.com/file/d/1Z1YfguWqS_yLZ1NlCGkdP-6kOiwcu7Wk/view?usp=sharing" class="section-button" target="_blank">
-                        <i class="fas fa-box-open"></i> Download Modpack (Required)
-                    </a>
-                </div>
+        <div class="download-item">
+            <h3>Storyline Package</h3>
+            <p>The storyline of the mod (Requires DYOM 8.1 Stable)</p>
+            <a href="https://drive.google.com/file/d/1rkqx96dJZK58ORkelBrjUYB5Bg6OibDt/view?usp=sharing" class="download-button" target="_blank">
+                Download Storyline <i class="fas fa-book-open"></i>
+            </a>
+            <span class="required-badge">Required</span>
+        </div>
 
-                <div class="download-item">
-                    <h3>Storyline Package</h3>
-                    <p>The storyline of the mod (Requires DYOM 8.1 Stable)</p>
-                    <a href="https://drive.google.com/file/d/1rkqx96dJZK58ORkelBrjUYB5Bg6OibDt/view?usp=sharing" class="section-button" target="_blank">
-                        <i class="fas fa-book-open"></i> Download Storyline (Required)
-                    </a>
-                </div>
-
-                <div class="download-item">
-                    <h3>Latest Patch</h3>
-                    <p>Bug fixes and performance improvements</p>
-                    <div class="section-button disabled">
-                        <i class="fas fa-tools"></i> Patch v1.0.0 
-                        <span class="badge">Coming Soon...</span>
-                    </div>
-                </div>
+        <div class="download-item">
+            <h3>Latest Patch</h3>
+            <p>Bug fixes and performance improvements</p>
+            <div class="download-button disabled">
+                <span>Patch v1.0.0</span>
+                <i class="fas fa-tools"></i>
+                <span class="coming-soon-badge">Coming Soon...</span>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Updated light mode styles */
+    body.light-mode .download-item {
+        background: rgba(244, 244, 244, 0.9);
+        border: 1px solid rgba(255, 68, 68, 0.2);
+    }
+
+    body.light-mode .required-badge {
+        background: rgba(255, 68, 68, 0.1);
+        color: var(--main-red);
+    }
+
+    body.light-mode .coming-soon-badge {
+        background: rgba(255, 68, 68, 0.05);
+        border: 1px solid rgba(255, 68, 68, 0.15);
+        color: var(--text-dark);
+    }
+
+    body.light-mode .download-button.disabled {
+        background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+        color: rgba(51, 51, 51, 0.5);
+    }
+
+    /* Base styles (unchanged but included for context) */
+    .download-items {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .download-item {
+        background: rgba(0,0,0,0.6);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid var(--main-red);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .required-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--main-red);
+        color: var(--text-light);
+        padding: 0.3rem 0.7rem;
+        border-radius: 15px;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .coming-soon-badge {
+        background: rgba(255, 68, 68, 0.2);
+        padding: 0.3rem 0.7rem;
+        border-radius: 15px;
+        margin-left: 0.5rem;
+        border: 1px solid var(--main-red);
+        color: var(--text-light);
+    }
+
+    .download-button.disabled {
+        background: linear-gradient(145deg, #5a0000, #3a0000);
+        opacity: 0.7;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+        .download-items {
+            grid-template-columns: 1fr;
+        }
+        
+        .download-item {
+            padding: 1rem;
+        }
+    }
+</style>
 
 <!-- New Trailer Section -->
 <section id="trailer">
