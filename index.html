@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,240 +24,269 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AdevAbdullah/Mod-website/main/lenchmobnigga.png">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Russo+One&display=swap" rel="stylesheet">
+
 <style>
     :root {
-        --main-red: #ff4444;
-        --main-dark: #1a1a1a;
-        --main-light: #f4f4f4;
-        --text-dark: #333;
-        --text-light: #fff;
-    }
+    --main-red: #ff4444;
+    --main-dark: #1a1a1a;
+    --main-light: #f4f4f4;
+    --text-dark: #333;
+    --text-light: #fff;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Orbitron', sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Russo One', sans-serif;
+}
 
-    body {
-        background: var(--main-dark) url('https://raw.githubusercontent.com/babamohammed2022/CLEO_Snippet_Fetcher/refs/heads/main/file_00000000ff5461fa9664a4620095ba2b_conversation_id67fce5d9-13d0-800c-906f-586df3adde0bmessage_ide03c0d3b-617e-4327-81f3-013a4e376e40.webp') center/cover no-repeat fixed;
-        color: var(--text-light);
-        line-height: 1.6;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+h1, h2, h3,
+.download-button {
+    font-family: 'Orbitron', sans-serif;
+}
 
-    body.light-mode {
-        background-color: var(--main-light);
-        color: var(--text-dark);
-    }
+body {
+    color: var(--text-light);
+    background-color: var(--main-dark);
+    line-height: 1.6;
+    position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: url('https://raw.githubusercontent.com/babamohammed2022/CLEO_Snippet_Fetcher/refs/heads/main/file_00000000ff5461fa9664a4620095ba2b_conversation_id67fce5d9-13d0-800c-906f-586df3adde0bmessage_ide03c0d3b-617e-4327-81f3-013a4e376e40.webp') center/cover no-repeat fixed;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.5s ease, background-image 0.5s ease;
+}
+
+body.light-mode {
+    background-color: var(--main-light);
+    color: var(--text-dark);
+}
+
+body.light-mode::before {
+    background-image: url('https://raw.githubusercontent.com/babamohammed2022/CLEO_Snippet_Fetcher/main/ChatGPT%20Image%2017%20apr%202025%2C%2009_06_31.png');
+    opacity: 1;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 1.5rem 1rem;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header img {
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 1rem auto 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(145deg, var(--main-red), #cc0000);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #ff5555, #dd0000);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(145deg, var(--main-red), #cc0000);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.download-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(145deg, #ff5555, #dd0000);
+    box-shadow: 0 6px 12px rgba(255, 68, 68, 0.3);
+    color: var(--text-light);
+}
+
+.download-button i {
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+}
+
+.download-button:hover i {
+    transform: translateY(-1px);
+}
+
+#darkModeToggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.15);
+    color: var(--text-light);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+body.light-mode #darkModeToggle {
+    background: rgba(0,0,0,0.1);
+    color: var(--text-dark);
+}
+
+#darkModeToggle:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+body.light-mode #darkModeToggle:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: rgba(0,0,0,0.75);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+    transition: background 0.3s ease;
+}
+
+body.light-mode section {
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: var(--main-red);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--main-red);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+p {
+    margin-bottom: 1.2rem;
+}
+
+@media (max-width: 768px) {
     header {
-        background: rgba(0, 0, 0, 0.95);
-        padding: 1.5rem 1rem;
-        width: 100%;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        padding: 1rem 0.5rem;
     }
 
     header img {
-        height: 150px;
-        margin: 0 auto;
-        display: block;
-        object-fit: contain;
-    }
-
-    nav {
-        max-width: 1200px;
-        margin: 1rem auto 0;
-        padding: 0 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
+        height: 120px;
     }
 
     .nav-button {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.5rem;
-        background: linear-gradient(145deg, var(--main-red), #cc0000);
-        color: var(--text-light);
-        border: none;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .nav-button:hover {
-        transform: translateY(-2px);
-        background: linear-gradient(145deg, #ff5555, #dd0000);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
     }
 
     .download-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.7rem;
-        padding: 0.8rem 1.8rem;
-        background: linear-gradient(145deg, var(--main-red), #cc0000);
-        color: var(--text-light);
-        border: none;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        font-family: 'Orbitron', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    .download-button:hover {
-        transform: translateY(-2px) scale(1.05);
-        background: linear-gradient(145deg, #ff5555, #dd0000);
-        box-shadow: 0 6px 12px rgba(255, 68, 68, 0.3);
-        color: var(--text-light);
-    }
-
-    .download-button i {
-        font-size: 1.1em;
-        transition: transform 0.3s ease;
-    }
-
-    .download-button:hover i {
-        transform: translateY(-1px);
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
     }
 
     #darkModeToggle {
-        position: fixed;
-        top: 1.5rem;
-        right: 1.5rem;
-        padding: 0.6rem 1rem;
-        border: none;
-        border-radius: 50px;
-        backdrop-filter: blur(5px);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(255,255,255,0.15);
-        color: var(--text-light);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-
-    body.light-mode #darkModeToggle {
-        background: rgba(0,0,0,0.1);
-        color: var(--text-dark);
-    }
-
-    #darkModeToggle:hover {
-        background: rgba(255,255,255,0.25);
-    }
-
-    body.light-mode #darkModeToggle:hover {
-        background: rgba(0,0,0,0.2);
-    }
-
-    main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
     }
 
     section {
-        margin-bottom: 2.5rem;
-        padding: 2rem;
-        background: rgba(0,0,0,0.75);
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        backdrop-filter: blur(8px);
-        transition: background 0.3s ease;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        height: 100px;
     }
 
-    body.light-mode section {
-        background: rgba(255,255,255,0.85);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    nav {
+        gap: 0.5rem;
     }
 
-    h1, h2, h3 {
-        color: var(--main-red);
-        margin-bottom: 1.5rem;
+    .nav-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
     }
 
-    h2 {
-        font-size: 1.8rem;
-        border-bottom: 2px solid var(--main-red);
-        padding-bottom: 0.5rem;
-        display: inline-block;
+    .download-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
     }
 
-    p {
-        margin-bottom: 1.2rem;
+    main {
+        padding: 1rem;
     }
 
-    @media (max-width: 768px) {
-        header {
-            padding: 1rem 0.5rem;
-        }
-
-        header img {
-            height: 120px;
-        }
-
-        .nav-button {
-            padding: 0.7rem 1.2rem;
-            font-size: 0.85rem;
-        }
-
-        .download-button {
-            padding: 0.7rem 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        #darkModeToggle {
-            top: 1rem;
-            right: 1rem;
-            padding: 0.5rem 0.8rem;
-            font-size: 0.85rem;
-        }
-
-        section {
-            padding: 1.5rem;
-        }
+    section {
+        padding: 1.2rem;
     }
+}
 
-    @media (max-width: 480px) {
-        header img {
-            height: 100px;
-        }
-
-        nav {
-            gap: 0.5rem;
-        }
-
-        .nav-button {
-            padding: 0.6rem 1rem;
-            font-size: 0.8rem;
-        }
-
-        .download-button {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.85rem;
-        }
-
-        main {
-            padding: 1rem;
-        }
-
-        section {
-            padding: 1.2rem;
-        }
-    }
 </style>
+
+
 
 </head>
 <body class="light-mode">
@@ -495,46 +525,46 @@
 
     <p><strong>Note:</strong> The mod is not optimized for MacOS or other OS. Compatibility is limited to Windows-based systems.</p>
 </section>
-
-
 <!-- Credits Section -->
 <section id="credits">
     <h2>Development Team</h2>
     <ul class="credits-list">
-        <li><strong><u>babamohammed2022</u>:</strong> Project Owner, Lead Mission Designer, Storywriting</li>
-        <li><strong><u>Abdullah</u>:</strong> Website Design, Models, Suggestions</li>
-        <li><strong><u>FrankoU</u>:</strong> Mapping Specialist, Screenshot Production</li>
-        <li><strong><u>avixreal</u>:</strong> Supervision, AI Voices, Website Assistance</li>
-        <li><strong><u>The Small Chese</u>:</strong> Mission Design, Creative Direction</li>
-        <li><strong><u>Armando</u>:</strong> Testing, Mission Contributions</li>
-        <li><strong><u>Mike</u>:</strong> Missions, In-game Photography</li>
-        <li><strong><u>Cerdquad</u>:</strong> Animations (with Yucark)</li>
-        <li><strong><u>GTAMissionsCreator</u>:</strong> Video Production</li>
-        <li><strong><u>Noobshakespeare</u>:</strong> Retexturing</li>
-        <li><strong><u>karammii</u>:</strong> Billboards Design</li>
-        <li><strong><u>Jmanuc</u>:</strong> Screenshots, Suggestions</li>
-        <li><strong><u>Rayane</u>:</strong> Suggestions, Voices</li>
-        <li><strong><u>Seve267</u>:</strong> Scripting Help, DYOM Modder, Other misc, Bug fixer</li>
-        <li><strong><u>Forge</u>:</strong> Scripting Help</li>
+        <li><strong>babamohammed2022:</strong> Project Owner, Lead Mission Designer, Storywriting</li>
+        <li><strong>Abdullah:</strong> Website Design, Models, Suggestions</li>
+        <li><strong>FrankoU:</strong> Mapping Specialist, Screenshot Production</li>
+        <li><strong>avixreal:</strong> Supervision, AI Voices, Website Assistance</li>
+        <li><strong>The Small Chese:</strong> Mission Design, Creative Direction</li>
+        <li><strong>Armando:</strong> Testing, Mission Contributions</li>
+        <li><strong>Mike:</strong> Missions, In-game Photography</li>
+        <li><strong>Cerdquad:</strong> Animations (with Yucark)</li>
+        <li><strong>GTAMissionsCreator:</strong> Video Production</li>
+        <li><strong>Noobshakespeare:</strong> Retexturing</li>
+        <li><strong>karammii:</strong> Billboards Design</li>
+        <li><strong>Jmanuc:</strong> Screenshots, Suggestions</li>
+        <li><strong>Rayane:</strong> Suggestions, Voices, Supervision</li>
+        <li><strong>Seve267:</strong> Scripting Help, DYOM Modder, Other misc, Bug fixer</li>
+        <li><strong>Forge:</strong> Scripting Help</li>
     </ul>
 
-    <h3>Special Contributors</h3>
+    <h3><u>Special Contributors</u></h3>
     <ul class="credits-list">
-        <li><strong><u>Rule Breakers</u>:</strong> Environmental Mapping</li>
-        <li><strong><u>Bolszewik</u>:</strong> In-game Photography</li>
-        <li><strong><u>14todoeltiempodc</u>:</strong> Weapon Retextures</li>
-        <li><strong><u>NorthStationX</u>:</strong> Billboards Design</li>
-        <li><strong><u>Lost MC Claude</u>:</strong> Bug Testing</li>
-        <li><strong><u>MAHMOGAMER</u>:</strong> Project Supervision</li>
-        <li><strong><u>Tix</u>:</strong> Gameplay Testing</li>
-        <li><strong><u>Raul</u>:</strong> Visual Enhancements</li>
+        <li><strong>Rule Breakers:</strong> Environmental Mapping</li>
+        <li><strong>Bolszewik:</strong> In-game Photography</li>
+        <li><strong>14todoeltiempodc:</strong> Weapon Retextures</li>
+        <li><strong>NorthStationX:</strong> Billboards Design</li>
+        <li><strong>Lost MC Claude:</strong> Bug Testing</li>
+        <li><strong>MAHMOGAMER:</strong> Project Supervision</li>
+        <li><strong>Tix:</strong> Gameplay Testing</li>
+        <li><strong>Raul:</strong> Visual Enhancements</li>
     </ul>
 
-    <h3>Special Credits</h3>
+    <h3><u>Special Credits</u></h3>
     <p>This mod integrates work from talented creators including:<br>
     <strong>Endochronic</strong>, <strong>SASquad</strong>, <strong>Yucark</strong>, <strong>TheMadeMan</strong>, and many others.<br>
     Full credits available in modpack files.</p>
 </section>
+
+
 
 <!-- Download Section -->
 <section id="download">
