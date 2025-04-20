@@ -507,24 +507,109 @@ p {
         }
     }
 </style>
-
 <!-- Requirements Section -->
 <section id="requirements">
-    <h2><i class="fas fa-cogs"></i> System Requirements</h2>
+    <h2><i class="fas fa-cogs section-icon"></i> System Requirements</h2>
 
-    <p>To ensure the best performance and compatibility, please make sure your setup meets the following requirements:</p>
+    <div class="requirements-list">
+        <p>To ensure the best performance and compatibility, make sure your setup meets the following requirements:</p>
 
-    <ul>
-        <li><strong>Game Version:</strong> GTA San Andreas v1.0 HOODLUM EXE (Clean Installation recommended)</li>
-        <li><strong>DYOM:</strong> DYOM 8.1 (included in the download)</li>
-        <li><strong>Operating System:</strong> Windows XP or higher</li>
-        <li><strong>RAM:</strong> 1GB minimum (2GB recommended)</li>
-        <li><strong>Graphics:</strong> 1GB VRAM minimum</li>
-        <li><strong>Storage:</strong> At least 6GB free space</li>
-    </ul>
+        <ul>
+            <li><strong>Game Version:</strong> GTA San Andreas v1.0 HOODLUM EXE (Clean Installation recommended)</li>
+            <li><strong>DYOM:</strong> DYOM 8.1 (included below)</li>
+            <li><strong>Operating System:</strong> Windows XP or higher</li>
+            <li><strong>RAM:</strong> 1GB minimum (2GB recommended)</li>
+            <li><strong>Graphics:</strong> 1GB VRAM minimum</li>
+            <li><strong>Storage:</strong> At least 6GB free space</li>
+            <li><strong>Additional Tools:</strong> CLEO 5, CLEO+, and other essentials available below</li>
+        </ul>
 
-    <p><strong>Note:</strong> The mod is not optimized for MacOS or other OS. Compatibility is limited to Windows-based systems.</p>
+        <p><strong>Note:</strong> The mod is only compatible with Windows-based systems. MacOS and other operating systems are not supported.</p>
+
+        <!-- Download Buttons -->
+        <div class="download-buttons">
+            <a href="https://github.com/cleolibrary/CLEO5/releases/download/v5.0.0-RC2/SA.CLEO_v5.0.0-RC2+Silent_ASI_Loader.zip" class="btn-download" download target="_blank">
+                <button class="btn-download-custom cleo5-btn">Download CLEO 5</button>
+            </a>
+
+            <a href="https://www.gtagarage.com/mods/download.php?f=35188" class="btn-download" download target="_blank">
+                <button class="btn-download-custom dyom-btn">Download DYOM 8.1</button>
+            </a>
+
+            <a href="https://www.mixmods.com.br/2023/10/cleoplus/" class="btn-download" download target="_blank">
+                <button class="btn-download-custom cleoplus-btn">Download CLEO+</button>
+            </a>
+
+            <a href="https://www.mediafire.com/file/pw94wuhxg49xli6/GTA_SAS_essentials_pack.rar/file" class="btn-download" download target="_blank">
+                <button class="btn-download-custom essent-btn">Download Essentials Pack</button>
+            </a>
+        </div>
+    </div>
 </section>
+
+<!-- Download Buttons Style -->
+<style>
+.download-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn-download-custom {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Button Background Colors */
+.cleo5-btn {
+    background-color: #0077cc;
+}
+
+.dyom-btn {
+    background-color: #e67e22;
+}
+
+.cleoplus-btn {
+    background-color: #8e44ad;
+}
+
+.essent-btn {
+    background-color: #c0392b;
+}
+
+/* Hover effects */
+.btn-download-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cleo5-btn:hover {
+    background-color: #005fa3;
+}
+
+.dyom-btn:hover {
+    background-color: #cf711d;
+}
+
+.cleoplus-btn:hover {
+    background-color: #732d91;
+}
+
+.essent-btn:hover {
+    background-color: #a93226;
+}
+</style>
+
 <!-- Credits Section -->
 <section id="credits">
     <h2>Development Team</h2>
