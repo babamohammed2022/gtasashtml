@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -443,8 +441,8 @@ p {
 
 /* FAQ Section Spacing */
 #faq {
-    margin-top: 40px; /* Space above FAQ section */
-    padding-top: 20px; /* Space below FAQ title */
+    margin-top: 40px;
+    padding-top: 20px;
 }
 
 /* FAQ Search Styles */
@@ -463,6 +461,17 @@ p {
     transition: all 0.3s ease;
     background-color: #f8f9fa;
     font-family: inherit;
+    color: #333;
+}
+body.light-mode #faqSearch {
+    background-color: #fff !important;
+    color: #222 !important;
+    border-color: #bbb !important;
+}
+body.dark-mode #faqSearch {
+    background-color: #181a1b !important;
+    color: #eee !important;
+    border-color: #333 !important;
 }
 
 #faqSearch:focus {
@@ -478,6 +487,10 @@ p {
     transform: translateY(-50%);
     color: #777;
     pointer-events: none;
+    transition: color 0.3s;
+}
+body.dark-mode .search-icon {
+    color: #aaa !important;
 }
 
 /* FAQ Grid Styles */
@@ -485,27 +498,65 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    margin-top: 20px; /* Space between search and questions */
+    margin-top: 20px;
 }
 
 .faq-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.05);
+    color: #eee;
+}
+body.light-mode .faq-item {
+    background: #fff !important;
+    color: #222 !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
+body.dark-mode .faq-item {
+    background: #181a1b !important;
+    color: #f4f4f4 !important;
+    border: 1px solid #222 !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
 }
 
 .faq-question {
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
     font-size: 18px;
+    padding: 0.8em 1em;
+    border-radius: 4px 4px 0 0;
+    transition: background 0.3s, color 0.3s;
+}
+body.light-mode .faq-question {
+    background: #ffeaea !important;
+    color: #b80000 !important;
+}
+body.dark-mode .faq-question {
+    background: #23272b !important;
+    color: #ff4444 !important;
 }
 
 .faq-answer {
-    color: #666;
     line-height: 1.5;
+    padding: 1em;
+    border-radius: 0 0 4px 4px;
+    transition: background 0.3s, color 0.3s;
+}
+body.light-mode .faq-answer {
+    color: #222 !important;
+    background: #fff !important;
+}
+body.dark-mode .faq-answer {
+    color: #f4f4f4 !important;
+    background: #181a1b !important;
 }
 </style>
 
@@ -597,7 +648,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     body.light-mode .faq-item {
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(244, 244, 244, 0.9);
+        border: 1px solid rgba(255, 68, 68, 0.2);
+    }
+
+    body.dark-mode .faq-item {
+        background: #23272b;
+        border: 1px solid #444;
     }
 
     .faq-item:hover {
@@ -611,8 +668,26 @@ document.addEventListener('DOMContentLoaded', function() {
         color: #ff4444;
     }
 
+    body.light-mode .faq-question {
+        background: #ffeaea;
+        color: #b80000;
+    }
+    body.dark-mode .faq-question {
+        background: #2d2323;
+        color: #ff4444;
+    }
+
     .faq-answer {
         padding: 1.2rem;
+    }
+
+    body.light-mode .faq-answer {
+        color: #222;
+        background: #fff;
+    }
+    body.dark-mode .faq-answer {
+        color: #eee;
+        background: #23272b;
     }
 
     @media (max-width: 768px) {
@@ -1064,18 +1139,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 </style>
 
-<!-- Dark Mode Toggle Script -->
+<!-- DARK/LIGHT MODE LOGIC -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const toggleButton = document.getElementById('darkModeToggle');
         const body = document.body;
 
-        // Function to update button text
+        // Function to update button text and icon
         function updateButtonText() {
             if (body.classList.contains('light-mode')) {
-                toggleButton.textContent = 'Light Mode';
+                toggleButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
             } else {
-                toggleButton.textContent = 'Dark Mode';
+                toggleButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
             }
         }
 
@@ -1083,6 +1158,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const isLightMode = localStorage.getItem('lightMode') === 'true';
         if (isLightMode) {
             body.classList.add('light-mode');
+        } else {
+            body.classList.remove('light-mode');
         }
 
         updateButtonText(); // Set initial button text
@@ -1095,6 +1172,11 @@ document.addEventListener('DOMContentLoaded', function() {
             updateButtonText();
         });
     });
+    // END DARK/LIGHT MODE LOGIC
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
